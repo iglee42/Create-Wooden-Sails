@@ -1,0 +1,6 @@
+{
+  "parent": "create:block/white_sail",
+  "textures": {
+    "0": "create_wooden_sails:block/sail/spruce"
+  }
+}

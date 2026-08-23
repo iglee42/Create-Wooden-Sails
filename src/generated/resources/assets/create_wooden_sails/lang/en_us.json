@@ -1,0 +1,14 @@
+{
+  "block.create_wooden_sails.acacia_sail": "Acacia Sail",
+  "block.create_wooden_sails.bamboo_sail": "Bamboo Sail",
+  "block.create_wooden_sails.birch_sail": "Birch Sail",
+  "block.create_wooden_sails.cherry_sail": "Cherry Sail",
+  "block.create_wooden_sails.crimson_sail": "Crimson Sail",
+  "block.create_wooden_sails.dark_oak_sail": "Dark Oak Sail",
+  "block.create_wooden_sails.jungle_sail": "Jungle Sail",
+  "block.create_wooden_sails.mangrove_sail": "Mangrove Sail",
+  "block.create_wooden_sails.oak_sail": "Oak Sail",
+  "block.create_wooden_sails.spruce_sail": "Spruce Sail",
+  "block.create_wooden_sails.warped_sail": "Warped Sail",
+  "itemGroup.create_wooden_sails.base": "Create Wooden Sails"
+}
