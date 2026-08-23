@@ -3,6 +3,7 @@ package fr.iglee42.woodensails.mixins;
 import com.simibubi.create.AllTags;
 import com.simibubi.create.content.contraptions.Contraption;
 import com.simibubi.create.content.contraptions.bearing.BearingContraption;
+import fr.iglee42.woodensails.CWSTags;
 import fr.iglee42.woodensails.blocks.WoodenSailBlock;
 import fr.iglee42.woodensails.contraptions.WoodenSailsContraption;
 import net.minecraft.core.BlockPos;
@@ -43,7 +44,7 @@ public abstract class BearingContraptionMixin extends Contraption implements Woo
 
     @Inject(method = "addBlock", at = @At(value = "INVOKE", target = "Lcom/simibubi/create/content/contraptions/Contraption;addBlock(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lorg/apache/commons/lang3/tuple/Pair;)V"), locals = LocalCapture.CAPTURE_FAILSOFT)
     private void cws$countWoodenSails(Level level, BlockPos pos, Pair<StructureTemplate.StructureBlockInfo, BlockEntity> capture, CallbackInfo ci, BlockPos localPos){
-        if (!getBlocks().containsKey(localPos) && getSailBlock(capture).getBlock() instanceof WoodenSailBlock)
+        if (!getBlocks().containsKey(localPos) && CWSTags.CWSBlockTags.WOODEN_SAILS.matches(getSailBlock(capture)))
             cws$woodenSails++;
     }
 

@@ -1,7 +1,9 @@
 package fr.iglee42.woodensails;
 
+import com.simibubi.create.AllTags;
 import com.simibubi.create.Create;
 import com.simibubi.create.foundation.data.CreateRegistrate;
+import com.tterrag.registrate.providers.ProviderType;
 import fr.iglee42.woodensails.config.CWSConfigs;
 import net.createmod.catnip.config.ui.BaseConfigScreen;
 import net.minecraft.resources.ResourceKey;
@@ -35,7 +37,8 @@ public class CreateWoodenSails {
         CWSCreativeModeTabs.register(modEventBus);
 
         REGISTRATE.addRawLang("itemGroup."+MODID+".base", "Create Wooden Sails");
-
+        REGISTRATE.addDataGenerator(ProviderType.BLOCK_TAGS,
+                prov->prov.addTag(AllTags.AllBlockTags.WINDMILL_SAILS.tag).addOptionalTag(CWSTags.CWSBlockTags.WOODEN_SAILS.tag));
         CWSConfigs.register(ModLoadingContext.get(), modContainer);
     }
 }

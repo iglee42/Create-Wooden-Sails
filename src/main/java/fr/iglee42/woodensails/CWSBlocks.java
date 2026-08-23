@@ -1,7 +1,6 @@
 package fr.iglee42.woodensails;
 
 import com.simibubi.create.AllItems;
-import com.simibubi.create.AllTags;
 import com.simibubi.create.Create;
 import com.simibubi.create.foundation.data.SharedProperties;
 import com.tterrag.registrate.providers.RegistrateRecipeProvider;
@@ -50,7 +49,7 @@ public class CWSBlocks {
                             .withExistingParent(type.name() + "_sail", Create.asResource("block/white_sail"))
                             .texture("0", p.modLoc("block/sail/" + type.name()));
                 }))
-                .tag(AllTags.AllBlockTags.WINDMILL_SAILS.tag)
+                .tag(CWSTags.CWSBlockTags.WOODEN_SAILS.tag)
                 .recipe((ctx, prov) -> ShapedRecipeBuilder
                         .shaped(RecipeCategory.MISC, ctx.get(), 2)
                         .pattern("PS")
