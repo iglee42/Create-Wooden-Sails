@@ -3,6 +3,7 @@ package fr.iglee42.woodensails.blocks;
 import com.simibubi.create.AllBlocks;
 import com.simibubi.create.AllShapes;
 import com.simibubi.create.content.contraptions.bearing.SailBlock;
+import net.createmod.catnip.math.VoxelShaper;
 import net.createmod.catnip.placement.IPlacementHelper;
 import net.createmod.catnip.placement.PlacementHelpers;
 import net.createmod.catnip.placement.PlacementOffset;
@@ -33,6 +34,9 @@ import java.util.List;
 import java.util.function.Predicate;
 
 public class WoodenSailBlock extends SailBlock {
+
+    private static final VoxelShaper SHAPE = new AllShapes.Builder(box(0, 6, 0, 16, 10, 16))
+            .forDirectional();
 
     private static final int placementHelperId = PlacementHelpers.register(new PlacementHelper());
 
@@ -78,7 +82,7 @@ public class WoodenSailBlock extends SailBlock {
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter p_220053_2_, BlockPos p_220053_3_,
                                CollisionContext p_220053_4_) {
-        return AllShapes.SAIL.get(state.getValue(FACING));
+        return SHAPE.get(state.getValue(FACING));
     }
 
     @MethodsReturnNonnullByDefault
