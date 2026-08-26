@@ -1,3 +1,6 @@
 {
-  "parent": "create_wooden_sails:block/wooden_sail"
+  "parent": "create_wooden_sails:block/wooden_sail",
+  "textures": {
+    "sail": "create_wooden_sails:block/sail/acacia"
+  }
 }

@@ -19,6 +19,10 @@ import static fr.iglee42.woodensails.CreateWoodenSails.REGISTRATE;
 
 public class CWSBlocks {
 
+    static {
+        REGISTRATE.setCreativeTab(CWSCreativeModeTabs.BASE_CREATIVE_TAB);
+    }
+
     public static final BlockEntry<WoodenSailBlock> OAK_SAIL = createWoodenSail(WoodType.OAK, Blocks.OAK_PLANKS),
             SPRUCE_SAIL = createWoodenSail(WoodType.SPRUCE, Blocks.SPRUCE_PLANKS),
             BIRCH_SAIL = createWoodenSail(WoodType.BIRCH, Blocks.BIRCH_PLANKS),
@@ -31,10 +35,6 @@ public class CWSBlocks {
             CHERRY_SAIL = createWoodenSail(WoodType.CHERRY, Blocks.CHERRY_PLANKS),
             BAMBOO_SAIL = createWoodenSail(WoodType.BAMBOO, Blocks.BAMBOO_PLANKS);
 
-    static {
-        REGISTRATE.setCreativeTab(CWSCreativeModeTabs.BASE_CREATIVE_TAB);
-    }
-
     public static BlockEntry<WoodenSailBlock> createWoodenSail(WoodType type, Block plankBlock) {
         return REGISTRATE.block(type.name() + "_sail", WoodenSailBlock::new)
                 .initialProperties(SharedProperties::wooden)
@@ -46,7 +46,7 @@ public class CWSBlocks {
                     boolean alt = state.getValue(WoodenSailBlock.ALT);
                     return p.models()
                             .withExistingParent(type.name() + "_sail", p.modLoc("block/wooden_sail"))
-                            .texture("sail", p.modLoc("block/sail" + (alt ? "_alt" : "") + "/" + type.name()));
+                            .texture("sail", p.modLoc("block/sail" /*+ (alt ? "_alt" : "")*/ + "/" + type.name()));
                 }))
                 .tag(CWSTags.CWSBlockTags.WOODEN_SAILS.tag)
                 .recipe((ctx, prov) -> ShapedRecipeBuilder
