@@ -89,7 +89,7 @@ public class WoodenSailBlock extends SailBlock {
     private static class PlacementHelper implements IPlacementHelper {
         @Override
         public Predicate<ItemStack> getItemPredicate() {
-            return i -> AllBlocks.SAIL.isIn(i) || AllBlocks.SAIL_FRAME.isIn(i);
+            return i -> i.getItem() instanceof BlockItem bi && bi.getBlock() instanceof SailBlock;
         }
 
         @Override
