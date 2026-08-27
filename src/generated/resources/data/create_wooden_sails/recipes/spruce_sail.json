@@ -6,10 +6,10 @@
       "item": "create:andesite_alloy"
     },
     "P": {
-      "item": "minecraft:mangrove_planks"
+      "item": "minecraft:spruce_planks"
     },
     "S": {
-      "tag": "c:rods/wooden"
+      "tag": "forge:rods/wooden"
     }
   },
   "pattern": [
@@ -18,6 +18,7 @@
   ],
   "result": {
     "count": 2,
-    "id": "create_wooden_sails:mangrove_sail"
-  }
+    "item": "create_wooden_sails:spruce_sail"
+  },
+  "show_notification": true
 }

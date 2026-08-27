@@ -49,7 +49,7 @@ public abstract class BearingContraptionMixin extends Contraption implements Woo
     }
 
     @Inject(method = "writeNBT", at =@At("RETURN"), locals = LocalCapture.CAPTURE_FAILSOFT)
-    private void cws$saveWoodenSails(HolderLookup.Provider registries, boolean spawnPacket, CallbackInfoReturnable<CompoundTag> cir, CompoundTag tag){
+    private void cws$saveWoodenSails(boolean spawnPacket, CallbackInfoReturnable<CompoundTag> cir, CompoundTag tag){
         tag.putInt("WoodenSails", cws$woodenSails);
     }
 

@@ -5,7 +5,9 @@
       "conditions": {
         "items": [
           {
-            "items": "create:andesite_alloy"
+            "items": [
+              "create:andesite_alloy"
+            ]
           }
         ]
       },
@@ -13,20 +15,21 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "create_wooden_sails:birch_sail"
+        "recipe": "create_wooden_sails:cherry_sail"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_item"
+      "has_item",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "create_wooden_sails:birch_sail"
+      "create_wooden_sails:cherry_sail"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

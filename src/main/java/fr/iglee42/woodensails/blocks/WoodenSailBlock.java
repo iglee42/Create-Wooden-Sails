@@ -1,6 +1,5 @@
 package fr.iglee42.woodensails.blocks;
 
-import com.simibubi.create.AllBlocks;
 import com.simibubi.create.AllShapes;
 import com.simibubi.create.content.contraptions.bearing.SailBlock;
 import net.createmod.catnip.math.VoxelShaper;
@@ -12,19 +11,14 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -54,16 +48,19 @@ public class WoodenSailBlock extends SailBlock {
     }
 
     @Override
-    protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
+    public InteractionResult use(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand,
+                                 BlockHitResult ray) {
+        ItemStack heldItem = player.getItemInHand(hand);
+
         IPlacementHelper placementHelper = PlacementHelpers.get(placementHelperId);
         if (!player.isShiftKeyDown() && player.mayBuild()) {
-            if (placementHelper.matchesItem(stack)) {
-                placementHelper.getOffset(player, level, state, pos, hitResult)
-                        .placeInWorld(level, (BlockItem) stack.getItem(), player, hand, hitResult);
-                return ItemInteractionResult.SUCCESS;
+            if (placementHelper.matchesItem(heldItem)) {
+                placementHelper.getOffset(player, world, state, pos, ray)
+                        .placeInWorld(world, (BlockItem) heldItem.getItem(), player, hand, ray);
+                return InteractionResult.SUCCESS;
             }
         }
-        return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+        return InteractionResult.PASS;
     }
 
     @Override

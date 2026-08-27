@@ -8,16 +8,13 @@ import fr.iglee42.woodensails.config.CWSConfigs;
 import net.createmod.catnip.config.ui.BaseConfigScreen;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.CreativeModeTab;
-import net.neoforged.api.distmarker.Dist;
-import net.neoforged.bus.api.IEventBus;
-import net.neoforged.fml.ModContainer;
-import net.neoforged.fml.ModList;
-import net.neoforged.fml.ModLoadingContext;
-import net.neoforged.fml.common.Mod;
-import net.neoforged.fml.event.lifecycle.FMLLoadCompleteEvent;
-import net.neoforged.fml.loading.FMLEnvironment;
-import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
-import net.neoforged.neoforge.common.NeoForge;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.DistExecutor;
+import net.minecraftforge.fml.ModLoadingContext;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 import java.util.function.Supplier;
 
@@ -28,8 +25,11 @@ public class CreateWoodenSails {
     public static final CreateRegistrate REGISTRATE = CreateRegistrate.create(MODID)
             .defaultCreativeTab((ResourceKey<CreativeModeTab>) null);
 
-    public CreateWoodenSails(IEventBus modEventBus, ModContainer modContainer) {
-        IEventBus neoForgeEventBus = NeoForge.EVENT_BUS;
+    public CreateWoodenSails() {
+        ModLoadingContext modLoadingContext = ModLoadingContext.get();
+        IEventBus modEventBus = FMLJavaModLoadingContext.get()
+                .getModEventBus();
+        IEventBus forgeEventBus = MinecraftForge.EVENT_BUS;
 
         REGISTRATE.registerEventListeners(modEventBus);
 
@@ -39,6 +39,8 @@ public class CreateWoodenSails {
         REGISTRATE.addRawLang("itemGroup."+MODID+".base", "Create Wooden Sails");
         REGISTRATE.addDataGenerator(ProviderType.BLOCK_TAGS,
                 prov->prov.addTag(AllTags.AllBlockTags.WINDMILL_SAILS.tag).addOptionalTag(CWSTags.CWSBlockTags.WOODEN_SAILS.tag));
-        CWSConfigs.register(ModLoadingContext.get(), modContainer);
+        CWSConfigs.register(modLoadingContext);
+
+        DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> CWSClient.init(modEventBus));
     }
 }
