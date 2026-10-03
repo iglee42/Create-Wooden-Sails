@@ -10,5 +10,8 @@
   "block.create_wooden_sails.oak_sail": "ןıɐS ʞɐO",
   "block.create_wooden_sails.spruce_sail": "ןıɐS ǝɔnɹdS",
   "block.create_wooden_sails.warped_sail": "ןıɐS pǝdɹɐM",
+  "block.create_wooden_sails.wooden_sails.tooltip.behaviour1": "˙ʇuɐıɹɐʌ ‾ʍoןןoɥ‾ ǝɥʇ sǝןbbo⟘",
+  "block.create_wooden_sails.wooden_sails.tooltip.condition1": "ɥɔuǝɹM ɐ ɥʇıʍ pǝʞɔıןƆ-ᴚ uǝɥM",
+  "block.create_wooden_sails.wooden_sails.tooltip.summary": "˙sןןıɯpuıʍ ɹoɟ ‾ןıɐs ɹǝdɐǝɥɔ‾ Ɐ",
   "itemGroup.create_wooden_sails.base": "sןıɐS uǝpooM ǝʇɐǝɹƆ"
 }

@@ -2,9 +2,11 @@ package fr.iglee42.woodensails;
 
 import com.simibubi.create.AllItems;
 import com.simibubi.create.foundation.data.SharedProperties;
+import com.simibubi.create.foundation.item.ItemDescription;
 import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import fr.iglee42.woodensails.blocks.WoodenSailBlock;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.world.level.block.Block;
@@ -42,6 +44,7 @@ public class CWSBlocks {
                         .sound(SoundType.SCAFFOLDING)
                         .noOcclusion())
                 .transform(axeOnly())
+                .onRegisterAfter(Registries.ITEM, v -> ItemDescription.useKey(v, "block.create_wooden_sails.wooden_sails"))
                 .blockstate((c, p) -> p.directionalBlock(c.get(), state -> {
                     boolean alt = state.getValue(WoodenSailBlock.ALT);
                     return p.models()
