@@ -45,8 +45,8 @@ public class CWSBlocks {
                 .blockstate((c, p) -> p.directionalBlock(c.get(), state -> {
                     boolean alt = state.getValue(WoodenSailBlock.ALT);
                     return p.models()
-                            .withExistingParent(type.name() + "_sail", p.modLoc("block/wooden_sail"))
-                            .texture("sail", p.modLoc("block/sail" /*+ (alt ? "_alt" : "")*/ + "/" + type.name()));
+                            .withExistingParent((alt ? "hollow_" : "") + type.name() + "_sail", p.modLoc("block/"+(alt ? "hollow_" : "") + "wooden_sail"))
+                            .texture("sail", p.modLoc("block/sail" + (alt ? "_hollow" : "") + "/" + type.name()));
                 }))
                 .tag(CWSTags.CWSBlockTags.WOODEN_SAILS.tag)
                 .recipe((ctx, prov) -> ShapedRecipeBuilder
