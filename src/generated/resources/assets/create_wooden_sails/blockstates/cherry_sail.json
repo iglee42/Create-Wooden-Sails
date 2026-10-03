@@ -27,28 +27,28 @@
       "y": 270
     },
     "alt=true,facing=down": {
-      "model": "create_wooden_sails:block/cherry_sail",
+      "model": "create_wooden_sails:block/hollow_cherry_sail",
       "x": 180
     },
     "alt=true,facing=east": {
-      "model": "create_wooden_sails:block/cherry_sail",
+      "model": "create_wooden_sails:block/hollow_cherry_sail",
       "x": 90,
       "y": 90
     },
     "alt=true,facing=north": {
-      "model": "create_wooden_sails:block/cherry_sail",
+      "model": "create_wooden_sails:block/hollow_cherry_sail",
       "x": 90
     },
     "alt=true,facing=south": {
-      "model": "create_wooden_sails:block/cherry_sail",
+      "model": "create_wooden_sails:block/hollow_cherry_sail",
       "x": 90,
       "y": 180
     },
     "alt=true,facing=up": {
-      "model": "create_wooden_sails:block/cherry_sail"
+      "model": "create_wooden_sails:block/hollow_cherry_sail"
     },
     "alt=true,facing=west": {
-      "model": "create_wooden_sails:block/cherry_sail",
+      "model": "create_wooden_sails:block/hollow_cherry_sail",
       "x": 90,
       "y": 270
     }
