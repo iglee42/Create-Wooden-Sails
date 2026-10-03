@@ -10,5 +10,8 @@
   "block.create_wooden_sails.oak_sail": "Oak Sail",
   "block.create_wooden_sails.spruce_sail": "Spruce Sail",
   "block.create_wooden_sails.warped_sail": "Warped Sail",
+  "block.create_wooden_sails.wooden_sails.tooltip.behaviour1": "Toggles the _hollow_ variant.",
+  "block.create_wooden_sails.wooden_sails.tooltip.condition1": "When R-Clicked with a Wrench",
+  "block.create_wooden_sails.wooden_sails.tooltip.summary": "A _cheaper sail_ for windmills.",
   "itemGroup.create_wooden_sails.base": "Create Wooden Sails"
 }
